@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualFit - Sales Deal Management</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        gray: {
+                            50: '#F9FAFB',
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        },
+                        primary: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 10px rgba(0, 0, 0, 0.03)',
+                        'card': '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',
+                        'modal': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'float': '0 10px 40px -10px rgba(0,0,0,0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Fonts (Inter for Notion vibe) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-800">
+    
+    <!-- Global Navigation -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 lg:px-12 transition-all duration-300 no-print">
+        <div class="flex items-center gap-3 cursor-pointer group" id="nav-logo">
+            <div class="w-9 h-9 bg-gray-900 text-white flex items-center justify-center rounded-lg text-sm font-bold shadow-sm group-hover:bg-black transition-colors duration-200">D</div>
+            <span class="font-bold text-lg tracking-tight text-gray-900">DualFit</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="nav-back-btn" class="hidden text-sm font-bold text-gray-700 bg-white border border-gray-300 shadow-sm hover:bg-gray-50 flex items-center gap-2 transition-all px-4 py-2 rounded-lg">
+                <i class="fa-solid fa-arrow-left text-xs"></i> Deal 목록으로
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app" class="max-w-6xl mx-auto p-6 md:p-10 pb-20 min-h-[calc(100vh-4rem)]">
+        <!-- Views will be injected here -->
+    </main>
+
+    <!-- Global Loading Overlay -->
+    <div id="global-loader" class="fixed inset-0 bg-white/90 z-[60] hidden flex flex-col items-center justify-center backdrop-blur-sm transition-opacity duration-300 no-print">
+        <div class="spinner mb-5"></div>
+        <p class="text-gray-600 font-medium text-sm tracking-wide animate-pulse" id="loader-text">처리 중...</p>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-8 right-8 z-[70] flex flex-col gap-3 no-print"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
